@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /calamari-bin
 
-COPY "$GITHUB_WORKSPACE/calamari-pc" /calamari-bin/calamari-pc
+COPY "$CALAMARI_PATH/calamari-pc" /calamari-bin/calamari-pc
 
 ADD "$KUSAMA_GENESIS" /calamari-bin/kusama.json
 
