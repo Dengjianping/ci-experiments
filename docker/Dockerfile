@@ -2,6 +2,7 @@ FROM ubuntu:20.04 as builder
 LABEL description="run calamari binary distribution in docker"
 ARG TAG_NAME
 ARG CALAMARI_PATH
+ARG CALAMARI_BINARY="${CALAMARI_PATH}/calamari-pc"
 ARG COMMIT_HASH
 ARG KUSAMA_GENESIS="https://raw.githubusercontent.com/paritytech/polkadot/v0.9.9-1/node/service/res/kusama.json"
 
@@ -9,7 +10,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 WORKDIR /calamari-bin
 
-COPY "$CALAMARI_PATH/calamari-pc" /calamari-bin/calamari-pc
+COPY "$CALAMARI_BINARY" /calamari-bin/calamari-pc
 
 ADD "$KUSAMA_GENESIS" /calamari-bin/kusama.json
 
