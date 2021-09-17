@@ -8,10 +8,7 @@ ARG KUSAMA_GENESIS="https://raw.githubusercontent.com/paritytech/polkadot/v0.9.9
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN echo $(ls -1 .)
-
-
-COPY "$CALAMARI_BINARY" /calamari-bin/calamari-pc
+COPY "$GITHUB_WORKSPACE/calamari-pc" /calamari-bin/calamari-pc
 
 ADD "$KUSAMA_GENESIS" /calamari-bin/kusama.json
 WORKDIR /calamari-bin
