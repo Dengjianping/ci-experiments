@@ -8,11 +8,13 @@ ARG KUSAMA_GENESIS="https://raw.githubusercontent.com/paritytech/polkadot/v0.9.9
 
 ENV DEBIAN_FRONTEND noninteractive
 
-WORKDIR /calamari-bin
+RUN echo $(ls -1 .)
+
 
 COPY "$CALAMARI_BINARY" /calamari-bin/calamari-pc
 
 ADD "$KUSAMA_GENESIS" /calamari-bin/kusama.json
+WORKDIR /calamari-bin
 
 RUN apt-get update && \
 	apt install -y openssl libssl-dev
