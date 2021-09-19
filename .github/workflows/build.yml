@@ -30,7 +30,7 @@ jobs:
         echo "RELEASE_VERSION=${{ github.event.release.tag_name }}" >> "$GITHUB_ENV"
 
     - name: Copy Binary
-      run: cp docker/calamari-pc .
+      run: cp ${{ github.workspace }}/docker/calamari-pc .
 
     - name: Build and push
       id: docker_build
